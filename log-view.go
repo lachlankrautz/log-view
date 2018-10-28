@@ -14,9 +14,21 @@ func main() {
 
 	cmd := exec.Command(args[0], args[1:]...)
 	out, err := cmd.CombinedOutput()
-	fmt.Printf("output: \n%s\n", string(out))
 	if err != nil {
+		fmt.Printf("output: \n%s\n", string(out))
 		log.Fatal("process failed: ", err)
+	} else {
+		processOutput(string(out))
+	}
+}
+
+func processOutput(output string) {
+	fmt.Println("is this even working?")
+	fmt.Println(output)
+	lines := strings.Split(output, "\n")
+	fmt.Printf("lines: %d\n", len(lines))
+	for index, line := range lines {
+		fmt.Printf("%d: %s\n", index, line)
 	}
 }
 
