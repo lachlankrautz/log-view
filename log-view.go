@@ -23,10 +23,7 @@ func main() {
 }
 
 func processOutput(output string) {
-	fmt.Println("is this even working?")
-	fmt.Println(output)
 	lines := strings.Split(output, "\n")
-	fmt.Printf("lines: %d\n", len(lines))
 	for index, line := range lines {
 		fmt.Printf("%d: %s\n", index, line)
 	}
